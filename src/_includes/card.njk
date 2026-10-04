@@ -1,0 +1,9 @@
+<li class="card">
+  <a href="{{ p.url }}">
+    <div class="card-media">
+      <img src="{{ p.data.cover | img }}" alt="{{ p.data.title }}{% if p.data.client %}, {{ p.data.client }}{% endif %}" loading="lazy" decoding="async" width="800" height="600">
+    </div>
+    <h3>{{ p.data.title }}</h3>
+    <p>{{ p.data.client }}{% if p.data.year %}, {{ p.data.year }}{% endif %}</p>
+  </a>
+</li>

@@ -1,0 +1,30 @@
+---
+layout: base.njk
+---
+<section class="wrap hero">
+  <h1>{{ site.name }}</h1>
+  <p class="hero-tag">{{ site.tagline }}</p>
+  <p class="lead">{{ site.fullName }} is a creative director and visual designer based in Bandung. {{ site.statement }}</p>
+  <p class="hero-links"><a href="/work/">See the work</a> <a href="/contact/">Get in touch</a></p>
+</section>
+
+<section class="wrap block">
+  <div class="block-head">
+    <h2>Selected work</h2>
+    <a href="/work/">All work ({{ collections.work | count }})</a>
+  </div>
+  {% set picks = collections.work | featured %}
+  {% if not (picks | length) %}{% set picks = collections.work %}{% endif %}
+  <ul class="grid">{% for p in picks | limit(9) %}{% include "card.njk" %}{% endfor %}</ul>
+</section>
+
+<section class="wrap block">
+  <h2>Background</h2>
+  <dl class="facts">
+    {% for f in site.facts %}<div><dt>{{ f.label }}</dt><dd>{{ f.text }}</dd></div>{% endfor %}
+  </dl>
+</section>
+
+<script type="application/ld+json">
+{{ {"@context":"https://schema.org","@type":"Person","name":site.fullName,"alternateName":site.name,"jobTitle":site.role,"url":site.url,"email":site.email,"address":{"@type":"PostalAddress","addressLocality":"Bandung","addressCountry":"ID"},"sameAs":(site.socials | pluck("url"))} | dump | safe }}
+</script>

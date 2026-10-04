@@ -1,0 +1,24 @@
+---
+layout: base.njk
+pagination:
+  data: site.categories
+  size: 1
+  alias: cat
+permalink: "/work/{{ cat.slug }}/"
+eleventyComputed:
+  title: "{{ cat.name }}"
+  description: "{{ cat.name }} by Roni Tresnawan (Smith1979): {{ cat.intro }}"
+  activeCat: "{{ cat.slug }}"
+  noindex: "{{ '' if (collections.work | byCategory(cat.slug) | count) > 0 else 'yes' }}"
+---
+<section class="wrap page">
+  <h1>{{ cat.name }}</h1>
+  <p class="lead">{{ cat.intro }}</p>
+  {% include "tabs.njk" %}
+  {% set list = collections.work | byCategory(cat.slug) %}
+  {% if list | length %}
+  <ul class="grid">{% for p in list %}{% include "card.njk" %}{% endfor %}</ul>
+  {% else %}
+  <p class="empty">Nothing here yet.</p>
+  {% endif %}
+</section>

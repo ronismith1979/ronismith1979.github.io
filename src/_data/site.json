@@ -1,0 +1,35 @@
+{
+  "name": "Smith1979",
+  "fullName": "Roni Tresnawan",
+  "url": "https://ronismith1979.github.io",
+  "role": "Creative Director & Visual Designer",
+  "location": "Bandung, Indonesia",
+  "title": "Smith1979 — Creative Director & Visual Designer, Bandung",
+  "description": "Roni Tresnawan (Smith1979) is a Bandung-based creative director and designer specializing in brand identity, art direction, and visual storytelling.",
+  "tagline": "Aesthetic Storytelling Through Design",
+  "subtagline": "Brand Identity, Art Direction, Visual Design",
+  "statement": "Multidisciplinary artist, creative director and designer blending music, motion, and meaning into timeless visual identities.",
+  "email": "ronismith1979@gmail.com",
+  "whatsapp": "https://wa.me/+6281327776711",
+  "socials": [
+    { "name": "Behance", "url": "https://www.behance.net/smith1979" },
+    { "name": "Instagram", "url": "https://www.instagram.com/smi777h/" },
+    { "name": "LinkedIn", "url": "https://www.linkedin.com/in/roni-tresnawan-smith1979/" },
+    { "name": "X", "url": "https://x.com/smith1979_" },
+    { "name": "Last.fm", "url": "https://www.last.fm/user/smith1979" }
+  ],
+  "categories": [
+    { "slug": "brand-identity", "name": "Brand Identity & Logo", "intro": "Logos, brand systems and rebrands, from contest briefs to full identities." },
+    { "slug": "social-campaign", "name": "Social Media & Campaign", "intro": "Art direction and design for social channels and campaigns." },
+    { "slug": "music-visuals", "name": "Album Art & Music Visuals", "intro": "Cover art, logos and visuals for musicians and releases." },
+    { "slug": "print-packaging", "name": "Print, Packaging & POSM", "intro": "Posters, packaging, printed collateral and point-of-sale material." },
+    { "slug": "motion-video", "name": "Motion & Video", "intro": "Motion graphics, reels and video edits." },
+    { "slug": "experimental", "name": "Experimental & AI Visuals", "intro": "Explorations that mix traditional tools with generative AI." }
+  ],
+  "facts": [
+    { "label": "Experience", "text": "Nearly two decades across brand identity, art direction and visual design." },
+    { "label": "Now", "text": "Lead Creative Visual at MUNclab, Bandung, since 2022." },
+    { "label": "Since 2017", "text": "Graphic Designer at Weblab, South Africa." },
+    { "label": "Also on", "text": "48hourslogo, Zillion Designs and Fiverr." }
+  ]
+}

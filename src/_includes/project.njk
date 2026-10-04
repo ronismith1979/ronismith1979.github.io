@@ -1,0 +1,40 @@
+---
+layout: base.njk
+---
+<article class="wrap project">
+  <header class="project-head">
+    <p class="crumb"><a href="/work/">Work</a> / <a href="/work/{{ category }}/">{{ category | catName(site.categories) }}</a></p>
+    <h1>{{ title }}</h1>
+    {% if summary %}<p class="lead">{{ summary }}</p>{% endif %}
+    <dl class="meta">
+      {% if client %}<div><dt>Client</dt><dd>{{ client }}</dd></div>{% endif %}
+      {% if role %}<div><dt>Role</dt><dd>{{ role }}</dd></div>{% endif %}
+      {% if year %}<div><dt>Year</dt><dd>{{ year }}</dd></div>{% endif %}
+      {% if source %}<div><dt>Via</dt><dd>{{ source }}</dd></div>{% endif %}
+      {% if link %}<div><dt>Link</dt><dd><a href="{{ link }}" rel="noopener" target="_blank">View live</a></dd></div>{% endif %}
+    </dl>
+  </header>
+
+  {% if content | trim %}<div class="prose">{{ content | safe }}</div>{% endif %}
+
+  <div class="gallery">
+    {% if images %}
+      {% for im in images %}
+        <img src="{{ im | img }}" alt="{{ title }}, image {{ loop.index }} of {{ images | length }}" {% if loop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
+      {% endfor %}
+    {% else %}
+      <img src="{{ cover | img }}" alt="{{ title }}" fetchpriority="high" decoding="async">
+    {% endif %}
+  </div>
+
+  {% set more = collections.work | related(page, 3) %}
+  {% if more | length %}
+  <section class="more">
+    <h2>More in {{ category | catName(site.categories) }}</h2>
+    <ul class="grid">{% for p in more %}{% include "card.njk" %}{% endfor %}</ul>
+  </section>
+  {% endif %}
+</article>
+<script type="application/ld+json">
+{{ {"@context":"https://schema.org","@type":"CreativeWork","name":title,"creator":{"@type":"Person","name":site.fullName,"alternateName":site.name},"url":(site.url + page.url),"description":summary} | dump | safe }}
+</script>

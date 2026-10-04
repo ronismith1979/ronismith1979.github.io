@@ -1,0 +1,25 @@
+---
+layout: base.njk
+title: About
+description: "About Roni Tresnawan (Smith1979), a Bandung-based creative director and visual designer with nearly two decades in brand identity, art direction and design."
+permalink: /about/
+---
+<section class="wrap page narrow-page">
+  <h1>About</h1>
+  <div class="prose">
+    {% for para in about.paragraphs %}<p>{{ para }}</p>{% endfor %}
+  </div>
+
+  <h2>Services</h2>
+  <ul class="plain">{% for s in about.services %}<li>{{ s }}</li>{% endfor %}</ul>
+
+  <h2>Experience</h2>
+  <dl class="facts">
+    {% for e in about.experience %}<div><dt>{{ e.when }}</dt><dd>{{ e.role }}, {{ e.org }}</dd></div>{% endfor %}
+  </dl>
+
+  <h2>Tools</h2>
+  <p>{{ about.skills | join(", ") }}.</p>
+
+  <p class="hero-links"><a href="/contact/">Start a project</a></p>
+</section>

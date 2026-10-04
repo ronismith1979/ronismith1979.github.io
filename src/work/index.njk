@@ -1,0 +1,15 @@
+---
+layout: base.njk
+title: Work
+description: "Selected brand identity, logo, social media, album art and campaign work by Roni Tresnawan (Smith1979), creative director and visual designer in Bandung."
+permalink: /work/
+---
+<section class="wrap page">
+  <h1>Work</h1>
+  {% include "tabs.njk" %}
+  {% if collections.work | length %}
+  <ul class="grid">{% for p in collections.work %}{% include "card.njk" %}{% endfor %}</ul>
+  {% else %}
+  <p class="empty">No projects yet. Add a file in <code>src/projects/</code>.</p>
+  {% endif %}
+</section>

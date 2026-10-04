@@ -1,0 +1,17 @@
+---
+layout: base.njk
+title: Sound
+description: "Music by Roni Tresnawan (Smith1979): songwriting and composition across post-rock, indiepop, tweepop, britpop, electronic and ambient."
+permalink: /sound/
+---
+<section class="wrap page narrow-page">
+  <h1>Sound</h1>
+  <p class="lead">{{ sound.intro }}</p>
+  <h2>Genres</h2>
+  <p>{{ sound.genres | join(", ") }}.</p>
+  <h2>Projects</h2>
+  <dl class="facts">
+    {% for p in sound.projects %}<div><dt>{{ p.name }}</dt><dd>{{ p.text }}</dd></div>{% endfor %}
+  </dl>
+  <p><a href="https://www.last.fm/user/smith1979" rel="noopener" target="_blank">Listening history on Last.fm</a></p>
+</section>

@@ -1,0 +1,13 @@
+{
+  "paragraphs": [
+    "I’ve spent nearly two decades navigating between brand identity, art direction, and visual design—currently leading creative projects at MUNclab and directing the creative studio Nampi Rupa-rupi Media (Narumi Visual) in Bandung. This multidisciplinary background, spanning graphic design, microstock ecosystem management, and audio-visual production, shapes a workflow that treats every project as a cohesive ecosystem rather than a mere compilation of static assets.",
+    "My design approach is rooted in structural thinking and efficient technical experimentation. When building the foundation of a new brand, my core principle is the integration of strategic logic and cross-medium exploration; merging conventional design tools with interactive visual instruments and generative artificial intelligence. Every visual identity must be built upon a precise narrative, systematically designed for scalability, and directly address core objectives without superficial ornamentation.",
+    "The “Smith1979” portfolio is driven by the intersection of sonic landscapes, nostalgia, and alternative culture. My background as a songwriter and composer—spanning post-rock, indiepop, tweepop, britpop, electronic, and ambient instrumentals—injects rhythm and emotional depth into my visual output. This sensibility is the primary differentiator; I do not merely design graphic compositions, but rather orchestrate multi-sensory experiences that fuse design aesthetics, local culture, and musical resonance."
+  ],
+  "services": ["Brand Identity", "Art Direction", "Visual Design", "Music & Motion Visuals", "Video Editing", "Audio Editing"],
+  "experience": [
+    { "role": "Lead Creative Visual", "org": "MUNclab, Bandung", "when": "2022 to present" },
+    { "role": "Graphic Designer", "org": "Weblab, South Africa", "when": "2017 to present" }
+  ],
+  "skills": ["Adobe Photoshop", "Illustrator", "Animate", "After Effects", "Premiere Pro", "CapCut", "Google ecosystem", "CorelDRAW", "FL Studio"]
+}

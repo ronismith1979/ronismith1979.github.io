@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% set pageTitle = (title + " — " + site.name) if title else site.title %}
+  {% set pageDesc = description or summary or site.description %}
+  <title>{{ pageTitle }}</title>
+  <meta name="description" content="{{ pageDesc }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  {% if noindex %}<meta name="robots" content="noindex">{% endif %}
+  <meta property="og:type" content="{{ 'article' if cover else 'website' }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ pageTitle }}">
+  <meta property="og:description" content="{{ pageDesc }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}{{ (cover | img) if cover else '/assets/img/og-default.png' }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:opsz,wght@6..72,400..600&display=swap">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="wordmark" href="/">{{ site.name }}</a>
+      <nav aria-label="Main">
+        <ul class="nav">
+          <li><a href="/work/"{% if page.url | startsWith("/work/") %} aria-current="page"{% endif %}>Work</a></li>
+          <li><a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a></li>
+          <li><a href="/sound/"{% if page.url == "/sound/" %} aria-current="page"{% endif %}>Sound</a></li>
+          <li><a href="/contact/"{% if page.url == "/contact/" %} aria-current="page"{% endif %}>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <p>{{ site.fullName }}, {{ site.role | lower }} in {{ site.location }}.</p>
+      <ul class="social">
+        {% for s in site.socials %}<li><a href="{{ s.url }}" rel="me noopener" target="_blank">{{ s.name }}</a></li>{% endfor %}
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
