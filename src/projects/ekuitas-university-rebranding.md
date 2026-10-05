@@ -7,7 +7,7 @@ link: "https://instagram.com/ekuitasuniversity"
 featured: true
 # year: 2024
 # source: Direct client
-# cover: ekuitas-university-rebranding/cover.jpg
+cover: ekuitas-university-rebranding/cover.jpg
 # images:
 #   - ekuitas-university-rebranding/01.jpg
 #   - ekuitas-university-rebranding/02.jpg
