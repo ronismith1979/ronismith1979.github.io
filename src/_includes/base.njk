@@ -48,7 +48,7 @@
     <div class="wrap foot">
       <p>{{ site.fullName }}, {{ site.role | lower }} in {{ site.location }}.</p>
       <ul class="social">
-        {% for s in site.socials %}<li><a href="{{ s.url }}" rel="me noopener" target="_blank">{{ s.name }}</a></li>{% endfor %}
+        {% for s in site.socials %}<li><a href="{{ s.url }}" rel="me noopener" target="_blank">{{ badge(s.name) }}{{ s.name }}</a></li>{% endfor %}
       </ul>
     </div>
   </footer>
