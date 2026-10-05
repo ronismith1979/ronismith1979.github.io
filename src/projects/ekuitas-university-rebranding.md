@@ -3,7 +3,7 @@ title: "Ekuitas University Rebranding"
 client: "MUNclab"
 category: brand-identity
 role: "Logo & Collaterals"
-link: "https://instagram.com/ekuitasuniversity"
+link: "https://ekuitas.ac.id/"
 featured: true
 # year: 2024
 # source: Direct client
