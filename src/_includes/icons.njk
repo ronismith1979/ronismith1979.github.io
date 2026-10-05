@@ -1,0 +1,7 @@
+{% macro badge(name) %}{% set label = {
+  "Behance": "Bē",
+  "Instagram": "IG",
+  "LinkedIn": "in",
+  "X": "X",
+  "Last.fm": "fm"
+}[name] or (name | truncate(2, true, "")) %}<span class="social-badge" aria-hidden="true">{{ label }}</span>{% endmacro %}
