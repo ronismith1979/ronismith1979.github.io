@@ -9,8 +9,8 @@ permalink: /contact/
   <h1>Contact</h1>
   <p class="lead">Have a brand, a release or a campaign in mind? Send a short brief and I’ll reply.</p>
   <dl class="facts">
-    <div><dt>Email</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd></div>
-    <div><dt>WhatsApp</dt><dd><a href="{{ site.whatsapp }}" rel="noopener" target="_blank">Message on WhatsApp</a></dd></div>
-    {% for s in site.socials %}<div><dt>{{ s.name }}</dt><dd><a href="{{ s.url }}" rel="me noopener" target="_blank">{{ badge(s.name) }}{{ s.url | replace("https://", "") | replace("www.", "") }}</a></dd></div>{% endfor %}
+    <div><dt>{{ badge("Email") }}Email</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd></div>
+    <div><dt>{{ badge("WhatsApp") }}WhatsApp</dt><dd><a href="{{ site.whatsapp }}" rel="noopener" target="_blank">Message on WhatsApp</a></dd></div>
+    {% for s in site.socials %}<div><dt>{{ badge(s.name) }}{{ s.name }}</dt><dd><a href="{{ s.url }}" rel="me noopener" target="_blank">{{ s.url | replace("https://", "") | replace("www.", "") }}</a></dd></div>{% endfor %}
   </dl>
 </section>
