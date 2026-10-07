@@ -130,3 +130,5 @@ code { font-size: 0.9em; background: var(--surface); padding: 0.1em 0.35em; }
   background: var(--accent); color: #fff; border-color: var(--accent);
 }
 .facts dd .social-badge { margin-right: 0.1rem; }
+
+.gallery video { display: block; width: 100%; background: var(--surface); }
