@@ -8,9 +8,10 @@ layout: base.njk
     {% if summary %}<p class="lead">{{ summary }}</p>{% endif %}
     <dl class="meta">
       {% if client %}<div><dt>Client</dt><dd>{{ client }}</dd></div>{% endif %}
-      {% if role %}<div><dt>Role</dt><dd>{{ role }}</dd></div>{% endif %}
-      {% if year %}<div><dt>Year</dt><dd>{{ year }}</dd></div>{% endif %}
       {% if source %}<div><dt>Via</dt><dd>{{ source }}</dd></div>{% endif %}
+      {% if role %}<div><dt>Role</dt><dd>{{ role }}</dd></div>{% endif %}
+      {% if scope %}<div><dt>Scope of Work</dt><dd>{{ scope }}</dd></div>{% endif %}
+      {% if year %}<div><dt>Year</dt><dd>{{ year }}</dd></div>{% endif %}
       {% if link %}<div><dt>Link</dt><dd><a href="{{ link }}" rel="noopener" target="_blank">View live</a></dd></div>{% endif %}
     </dl>
   </header>
@@ -20,7 +21,11 @@ layout: base.njk
   <div class="gallery">
     {% if images %}
       {% for im in images %}
-        <img src="{{ im | img }}" alt="{{ title }}, image {{ loop.index }} of {{ images | length }}" {% if loop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
+        {% if im.endsWith(".mp4") %}
+          <video controls playsinline preload="metadata" src="{{ im | img }}" aria-label="{{ title }}, video {{ loop.index }} of {{ images | length }}"></video>
+        {% else %}
+          <img src="{{ im | img }}" alt="{{ title }}, image {{ loop.index }} of {{ images | length }}" {% if loop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
+        {% endif %}
       {% endfor %}
     {% else %}
       <img src="{{ cover | img }}" alt="{{ title }}" fetchpriority="high" decoding="async">
