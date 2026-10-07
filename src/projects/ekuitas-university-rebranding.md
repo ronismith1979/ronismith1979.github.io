@@ -2,11 +2,12 @@
 title: "Ekuitas University Rebranding"
 client: "STIE Ekuitas (Ekuitas University)"
 category: brand-identity
-role: "Logo & Collaterals"
+role: "Visual Lead, Logo Designer"
+scope: "Logo & Collaterals"
+year: 2024
+source: MUNclab
 link: "https://ekuitas.ac.id/"
 featured: true
-# year: 2024
-# source: Direct client
 cover: ekuitas-university-rebranding/cover.jpg
 images:
 - ekuitas-university-rebranding/Ekuitas_University-Logo_Bumper.mp4
