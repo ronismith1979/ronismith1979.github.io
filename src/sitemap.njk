@@ -14,4 +14,7 @@ eleventyExcludeFromCollections: true
   {%- for p in collections.work %}{% if not p.data.draft %}
   <url><loc>{{ site.url }}{{ p.url }}</loc></url>
   {%- endif %}{% endfor %}
+  {%- for p in collections.sounds %}{% if p.url and not p.data.draft %}
+  <url><loc>{{ site.url }}{{ p.url }}</loc></url>
+  {%- endif %}{% endfor %}
 </urlset>

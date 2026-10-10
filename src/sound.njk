@@ -1,17 +1,50 @@
 ---
 layout: base.njk
 title: Sonic Journey
-description: "Music by Roni Tresnawan (Smith1979): songwriting and composition across post-rock, indiepop, tweepop, britpop, electronic and ambient."
+description: "Music by Roni Tresnawan (Smith1979): bands and projects, film scoring and collaborations, writing and local independent scene involvement."
 permalink: /sounds/
 ---
-<section class="wrap page narrow-page">
+<section class="wrap page">
   <h1>Sonic Journey</h1>
   <p class="lead">{{ sound.intro }}</p>
-  <h2>Genres</h2>
-  <p>{{ sound.genres | join(", ") }}.</p>
-  <h2>Projects</h2>
-  <dl class="facts">
-    {% for p in sound.projects %}<div><dt>{{ p.name }}</dt><dd>{{ p.text }}</dd></div>{% endfor %}
-  </dl>
-  <p><a href="https://www.last.fm/user/smith1979" rel="noopener" target="_blank">Listening history on Last.fm</a></p>
+  <p class="genres">{{ sound.genres | join(" · ") }}</p>
+
+  {% if collections.sounds | length or site.previewMode %}
+  <ul class="tabs" aria-label="Sections">
+    {%- for sec in sound.sections %}{% set n = collections.sounds | byType(sec.type) | count %}{% if n > 0 or site.previewMode %}
+    <li><a href="#{{ sec.slug }}">{{ sec.name }} <span class="count">{{ n }}</span></a></li>
+    {%- endif %}{% endfor %}
+  </ul>
+  {% endif %}
+
+  {% for sec in sound.sections %}
+  {% set list = collections.sounds | byType(sec.type) %}
+  {% if list | length or site.previewMode %}
+  <section class="block sound-section" id="{{ sec.slug }}">
+    <h2>{{ sec.name }}</h2>
+    {% if sec.intro %}<p class="lead">{{ sec.intro }}</p>{% endif %}
+    {% if list | length %}
+      {% if sec.layout == "cards" %}
+      <ul class="grid">{% for p in list %}{% include "sound-card.njk" %}{% endfor %}</ul>
+      {% else %}
+      <dl class="facts">
+        {% for p in list %}
+        <div>
+          <dt>{{ p.data.year }}{% if p.data.draft %} <span class="soon">draft</span>{% endif %}</dt>
+          <dd>
+            {% if p.data.link %}<a href="{{ p.data.link }}" rel="noopener" target="_blank">{{ p.data.title }}</a>{% else %}{{ p.data.title }}{% endif %}
+            {% if p.data.org or p.data.role %}<span class="entry-meta">{{ p.data.org }}{% if p.data.org and p.data.role %}, {% endif %}{{ p.data.role }}</span>{% endif %}
+          </dd>
+        </div>
+        {% endfor %}
+      </dl>
+      {% endif %}
+    {% else %}
+      <p class="empty">Coming soon.</p>
+    {% endif %}
+  </section>
+  {% endif %}
+  {% endfor %}
+
+  <p class="listening"><a href="https://www.last.fm/user/smith1979" rel="noopener" target="_blank">Listening history on Last.fm</a></p>
 </section>

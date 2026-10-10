@@ -49,6 +49,22 @@ Field penting:
 
 **Catatan:** `draft: true` hanya menyembunyikan dari situs. File-nya tetap terlihat di repo karena repo ini publik. Jangan upload materi rahasia/NDA.
 
+## Halaman Sounds (Sonic Journey)
+
+Satu file di `src/sounds/<nama>.md` = satu item. Salin dari `TEMPLATE-sound.md`. Field `type` menentukan tampilannya:
+
+| `type` | Tampil sebagai |
+|---|---|
+| `project` | Card di seksi **Projects**, punya halaman sendiri (band/proyek musikmu) |
+| `collab` | Card di seksi **Collaborations & Scoring**, punya halaman sendiri |
+| `writing` | Baris daftar di seksi **Writing** (judul, media, tahun, link) |
+| `scene` | Baris daftar di seksi **Scene & Community** (talks, workshop, gigs) |
+
+- Cover kosong = placeholder abu-abu. Taruh gambar di `src/assets/img/projects/<nama>/` seperti project portfolio.
+- Tombol dengar/tonton diisi lewat `links:` (Spotify, Bandcamp, YouTube, dll.).
+- 6 item awal (My Violainé Morning, Pop at Summer, Dream Cloud Cherries, Sonetique, Smi7h, Empat Musim Pertiwi) masih `draft: true` dengan deskripsi placeholder. Edit isinya, lalu ubah jadi `draft: false`.
+- Seksi yang kosong otomatis hilang saat launch. Nama dan intro tiap seksi diatur di `src/_data/sound.json`.
+
 ## Panduan gambar dan video
 
 - Gambar: JPG/WebP, lebar maksimal 1600px, di bawah 400 KB per file (kompres di squoosh.app).

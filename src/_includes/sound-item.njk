@@ -1,0 +1,43 @@
+---
+layout: base.njk
+---
+{% set sec = sound.sections | sectionFor(type) %}
+<article class="wrap project">
+  <header class="project-head">
+    <p class="crumb"><a href="/sounds/">Sounds</a> / <a href="/sounds/#{{ sec.slug }}">{{ sec.name }}</a></p>
+    <h1>{{ title }}</h1>
+    {% if summary %}<p class="lead">{{ summary }}</p>{% endif %}
+    <dl class="meta">
+      {% if genre %}<div><dt>Genre</dt><dd>{{ genre }}</dd></div>{% endif %}
+      {% if role %}<div><dt>Role</dt><dd>{{ role }}</dd></div>{% endif %}
+      {% if with %}<div><dt>With</dt><dd>{{ with }}</dd></div>{% endif %}
+      {% if year %}<div><dt>Year</dt><dd>{{ year }}</dd></div>{% endif %}
+    </dl>
+    {% if links %}<p class="hero-links">{% for l in links %}<a href="{{ l.url }}" rel="noopener" target="_blank">{{ l.label }}</a>{% endfor %}</p>{% endif %}
+  </header>
+
+  {% if content | trim %}<div class="prose">{{ content | safe }}</div>{% endif %}
+
+  {% if images %}
+  <div class="gallery">
+    {% for im in images %}
+      {% if im.endsWith(".mp4") %}
+        <video controls playsinline preload="metadata" src="{{ im | img }}" aria-label="{{ title }}, video {{ loop.index }} of {{ images | length }}"></video>
+      {% else %}
+        <img src="{{ im | img }}" alt="{{ title }}, image {{ loop.index }} of {{ images | length }}" loading="lazy" decoding="async">
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% set more = collections.sounds | siblings(page, 3) %}
+  {% if more | length %}
+  <section class="more">
+    <h2>More in {{ sec.name }}</h2>
+    <ul class="grid">{% for p in more %}{% include "sound-card.njk" %}{% endfor %}</ul>
+  </section>
+  {% endif %}
+</article>
+<script type="application/ld+json">
+{{ {"@context":"https://schema.org","@type":("MusicGroup" if type == "project" else "CreativeWork"),"name":title,"genre":genre,"creator":{"@type":"Person","name":site.fullName,"alternateName":site.name},"url":(site.url + page.url),"description":summary,"sameAs":((links | pluck("url")) if links else [])} | dump | safe }}
+</script>

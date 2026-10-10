@@ -16,6 +16,30 @@ export default function (eleventyConfig) {
       })
   );
 
+  // Sounds: music projects, collaborations, writing, scene. Newest year first.
+  eleventyConfig.addCollection("sounds", (api) =>
+    api
+      .getFilteredByTag("sounds")
+      .filter((p) => !p.data.draft || (p.data.site && p.data.site.previewMode))
+      .sort((a, b) => {
+        const ya = Number(a.data.year) || 0;
+        const yb = Number(b.data.year) || 0;
+        if (yb !== ya) return yb - ya;
+        return String(a.data.title).localeCompare(String(b.data.title));
+      })
+  );
+
+  eleventyConfig.addFilter("byType", (items, type) =>
+    items.filter((p) => p.data.type === type)
+  );
+  eleventyConfig.addFilter("sectionFor", (sections, type) =>
+    sections.find((x) => x.type === type) || {}
+  );
+  eleventyConfig.addFilter("siblings", (items, current, n = 3) =>
+    items
+      .filter((p) => p.data.type === current.type && p.url !== current.page.url)
+      .slice(0, n)
+  );
   eleventyConfig.addFilter("byCategory", (items, slug) =>
     items.filter((p) => p.data.category === slug)
   );
