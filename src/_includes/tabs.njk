@@ -1,9 +1,9 @@
-<ul class="tabs" aria-label="Work categories">
-  <li><a href="/work/"{% if not activeCat %} aria-current="page"{% endif %}>All <span class="count">{{ collections.work | count }}</span></a></li>
+<ul class="tabs" aria-label="Portfolio categories">
+  <li><a href="/portfolio/"{% if not activeCat %} aria-current="page"{% endif %}>All <span class="count">{{ collections.work | count }}</span></a></li>
   {% for c in site.categories %}
     {% set n = collections.work | byCategory(c.slug) | count %}
-    {% if n > 0 %}
-    <li><a href="/work/{{ c.slug }}/"{% if activeCat == c.slug %} aria-current="page"{% endif %}>{{ c.name }} <span class="count">{{ n }}</span></a></li>
+    {% if n > 0 or site.previewMode %}
+    <li><a href="/portfolio/{{ c.slug }}/"{% if activeCat == c.slug %} aria-current="page"{% endif %}>{{ c.name }} <span class="count">{{ n }}</span></a></li>
     {% endif %}
   {% endfor %}
 </ul>

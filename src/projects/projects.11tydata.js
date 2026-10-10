@@ -3,7 +3,9 @@ export default {
   layout: "project.njk",
   eleventyComputed: {
     permalink: (data) =>
-      data.draft ? false : `/work/${data.category}/${data.page.fileSlug}/`,
+      data.draft && !(data.site && data.site.previewMode)
+        ? false
+        : `/portfolio/${data.category}/${data.page.fileSlug}/`,
     // Auto SEO description if you didn't write a summary
     description: (data) =>
       data.summary ||

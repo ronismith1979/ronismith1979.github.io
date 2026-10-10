@@ -9,7 +9,7 @@
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDesc }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-  {% if noindex %}<meta name="robots" content="noindex">{% endif %}
+  {% if noindex or status == "soon" or site.previewMode %}<meta name="robots" content="noindex">{% endif %}
   <meta property="og:type" content="{{ 'article' if cover else 'website' }}">
   <meta property="og:site_name" content="{{ site.name }}">
   <meta property="og:title" content="{{ pageTitle }}">
@@ -22,19 +22,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Newsreader:opsz,wght@6..72,400..600&display=swap">
   <link rel="stylesheet" href="/assets/css/style.css">
+  <script>document.documentElement.classList.add("js")</script>
   {% block head %}{% endblock %}
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  {% if site.previewMode %}<div class="preview-bar">Preview mode: this site is not public yet and is hidden from search engines. Set "previewMode" to false in site.json to launch.</div>{% endif %}
   <header class="site-header">
     <div class="wrap bar">
       <a class="wordmark" href="/">{{ site.name }}</a>
-      <nav aria-label="Main">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="bars" aria-hidden="true"></span><span class="sr">Menu</span></button>
+      <nav id="site-nav" class="nav-wrap" aria-label="Main">
         <ul class="nav">
-          <li><a href="/work/"{% if page.url | startsWith("/work/") %} aria-current="page"{% endif %}>Work</a></li>
-          <li><a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a></li>
-          <li><a href="/sound/"{% if page.url == "/sound/" %} aria-current="page"{% endif %}>Sound</a></li>
-          <li><a href="/contact/"{% if page.url == "/contact/" %} aria-current="page"{% endif %}>Contact</a></li>
+          {%- for item in site.nav %}{% if item.show or site.previewMode %}
+          <li class="{% if item.dropdown %}has-sub {% endif %}{% if item.cta %}cta {% endif %}{% if not item.show %}is-soon{% endif %}">
+            <a href="{{ item.url }}"{% if page.url | startsWith(item.url) %} aria-current="page"{% endif %}>{{ item.label }}{% if not item.show %}<span class="soon">soon</span>{% endif %}</a>
+            {%- if item.dropdown == "categories" %}
+            <ul class="sub">
+              {%- for c in site.categories %}{% set n = collections.work | byCategory(c.slug) | count %}{% if n > 0 or site.previewMode %}
+              <li><a href="{{ item.url }}{{ c.slug }}/">{{ c.name }} <span class="count">{{ n }}</span></a></li>
+              {%- endif %}{% endfor %}
+            </ul>
+            {%- endif %}
+          </li>
+          {%- endif %}{% endfor %}
         </ul>
       </nav>
     </div>
@@ -52,5 +63,15 @@
       </ul>
     </div>
   </footer>
+  <script>
+  (function () {
+    var b = document.querySelector(".nav-toggle"), n = document.getElementById("site-nav");
+    if (!b || !n) return;
+    function set(open) { b.setAttribute("aria-expanded", open); n.classList.toggle("is-open", open); }
+    b.addEventListener("click", function () { set(b.getAttribute("aria-expanded") !== "true"); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+    n.addEventListener("click", function (e) { if (e.target.closest("a")) set(false); });
+  })();
+  </script>
 </body>
 </html>

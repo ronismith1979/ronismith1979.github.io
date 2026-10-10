@@ -2,11 +2,12 @@ export default function (eleventyConfig) {
   // Copy images, css, etc. as-is
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
 
-  // All published projects, newest year first
+  // All published projects, newest year first.
+  // Drafts are included only while site.previewMode is true.
   eleventyConfig.addCollection("work", (api) =>
     api
       .getFilteredByTag("projects")
-      .filter((p) => !p.data.draft)
+      .filter((p) => !p.data.draft || (p.data.site && p.data.site.previewMode))
       .sort((a, b) => {
         const ya = Number(a.data.year) || 0;
         const yb = Number(b.data.year) || 0;

@@ -4,13 +4,14 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  {%- for u in ["/", "/work/", "/about/", "/sound/", "/contact/"] %}
-  <url><loc>{{ site.url }}{{ u }}</loc></url>
-  {%- endfor %}
-  {%- for c in site.categories %}{% if (collections.work | byCategory(c.slug) | count) > 0 %}
-  <url><loc>{{ site.url }}/work/{{ c.slug }}/</loc></url>
+  <url><loc>{{ site.url }}/</loc></url>
+  {%- for n in site.nav %}{% if n.show %}
+  <url><loc>{{ site.url }}{{ n.url }}</loc></url>
   {%- endif %}{% endfor %}
-  {%- for p in collections.work %}
+  {%- for c in site.categories %}{% if (collections.work | byCategory(c.slug) | count) > 0 %}
+  <url><loc>{{ site.url }}/portfolio/{{ c.slug }}/</loc></url>
+  {%- endif %}{% endfor %}
+  {%- for p in collections.work %}{% if not p.data.draft %}
   <url><loc>{{ site.url }}{{ p.url }}</loc></url>
-  {%- endfor %}
+  {%- endif %}{% endfor %}
 </urlset>

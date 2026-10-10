@@ -1,42 +1,64 @@
-# ronismith1979.github.io
+# Smith1979
 
-Portfolio Smith1979 (Roni Tresnawan). Dibangun dengan Eleventy, di-deploy otomatis ke GitHub Pages.
+**Portfolio of Roni Tresnawan: creative director, designer and multidisciplinary artist based in Bandung, Indonesia.**
 
-## Setup (sekali saja)
+Live site: **https://ronismith1979.github.io**
 
-1. Buat repo **public** di GitHub bernama persis `ronismith1979.github.io` (harus sama dengan username GitHub: ronismith1979).
-2. Upload semua isi folder ini ke repo (termasuk folder `.github`). Branch: `main`.
-3. Repo > **Settings > Pages > Build and deployment > Source: GitHub Actions**.
-4. Buka tab **Actions**, tunggu workflow "Deploy to GitHub Pages" hijau (sekitar 1 menit).
-5. Situs live di `https://ronismith1979.github.io`.
+> Aesthetic storytelling through visual design and sounds.
 
-## Tambah project baru
+## About
 
-1. Buat folder gambar: `src/assets/img/projects/<nama-project>/` lalu upload `cover.jpg`, `01.jpg`, `02.jpg`, dst.
-2. Salin `TEMPLATE-project.md` ke `src/projects/<nama-project>.md`, isi datanya.
-3. Commit. Situs update sendiri dalam sekitar 1 menit.
+Smith1979 is a creative portfolio at the intersection of brand identity, art direction, music and motion. Nearly two decades of work across logos, brand systems, social campaigns, album art, print and video, shaped by a background in songwriting and composition.
 
-Edit project lama = edit file `.md`-nya. Sembunyikan sementara = `draft: true`.
+## What's on the site
 
-## Panduan gambar
+| Section | What you'll find |
+|---|---|
+| **Portfolio** | Selected brand identity, social media and campaign, music visuals, print and packaging, motion and experimental work, grouped by category |
+| **Ready-Made** | Ready-to-use kits and packs to start a project faster *(coming soon)* |
+| **Downloads** | Free fonts, prompt packs, templates and media *(coming soon)* |
+| **Sounds** | Music projects, collaborations, scoring and writing |
+| **About** | Background, services, experience and tools |
+| **Contact** | Email, WhatsApp and social links |
 
-- Format JPG/WebP, lebar maksimal 1600px, ukuran di bawah 400 KB per file (kompres di squoosh.app).
-- `cover`: rasio bebas, otomatis di-crop 4:3 di grid. Halaman project menampilkan gambar utuh.
-- Isi `images:` urut sesuai tampilan.
+## How it's built
 
-## Kategori
+- **[Eleventy](https://www.11ty.dev/) 3** static site generator (Nunjucks templates, Markdown content)
+- **GitHub Actions** builds and deploys to **GitHub Pages** on every push to `main`
+- Plain CSS with custom properties, automatic light and dark mode, responsive layout
+- No frameworks and no client-side tracking; one small inline script powers the mobile menu
+- SEO basics built in: canonical URLs, Open Graph tags, JSON-LD structured data and an auto-generated sitemap
 
-Diatur di `src/_data/site.json` (`categories`). Kategori kosong otomatis disembunyikan dari menu dan sitemap.
-
-## Edit konten lain
-
-- Bio, jasa, pengalaman, tools: `src/_data/about.json`
-- Identitas, tagline, kontak, sosial media: `src/_data/site.json`
-- Halaman Sound: `src/_data/sound.json`
-
-## Jalankan lokal (opsional)
+## Repository structure
 
 ```
+src/
+  _data/          site, about and sound content (JSON)
+  _includes/      layouts and components (base, card, tabs, project)
+  assets/         CSS and images
+  projects/       one Markdown file per portfolio project
+  work/           portfolio listing and category pages
+  *.njk           top-level pages (home, about, sounds, contact, ...)
+eleventy.config.js
+.github/workflows/deploy.yml
+```
+
+## Run locally
+
+```bash
 npm install
 npm start
 ```
+
+Then open http://localhost:8080. For maintenance notes on adding projects and managing pages, see [CONTENT-GUIDE.md](CONTENT-GUIDE.md).
+
+## Copyright
+
+Portfolio content (images, videos, text, brand work and music) is © Roni Tresnawan, all rights reserved. Client names, logos and brand assets belong to their respective owners and appear for portfolio purposes only. The site's structure and code may be used as a reference, but please don't reuse the content.
+
+## Contact
+
+Have a brand, a release or a campaign in mind?
+
+- Email: ronismith1979@gmail.com
+- [Behance](https://www.behance.net/smith1979) · [Instagram](https://www.instagram.com/smi777h/) · [LinkedIn](https://www.linkedin.com/in/roni-tresnawan-smith1979/) · [X](https://x.com/smith1979_) · [Last.fm](https://www.last.fm/user/smith1979)

@@ -4,14 +4,14 @@ layout: base.njk
 <section class="wrap hero">
   <h1>{{ site.name }}</h1>
   <p class="hero-tag">{{ site.tagline }}</p>
-  <p class="lead">{{ site.fullName }} is a creative director and visual designer based in Bandung. {{ site.statement }}</p>
-  <p class="hero-links"><a href="/work/">See the work</a> <a href="/contact/">Get in touch</a></p>
+  <p class="lead">{{ site.fullName }} is a creative director, designer and multidisciplinary artist based in Bandung. {{ site.statement }}</p>
+  <p class="hero-links"><a href="/portfolio/">See the portfolio</a> <a href="/contact/">Get in touch</a></p>
 </section>
 
 <section class="wrap block">
   <div class="block-head">
     <h2>Selected work</h2>
-    <a href="/work/">All work ({{ collections.work | count }})</a>
+    <a href="/portfolio/">Full portfolio ({{ collections.work | count }})</a>
   </div>
   {% set picks = collections.work | featured %}
   {% if not (picks | length) %}{% set picks = collections.work %}{% endif %}
