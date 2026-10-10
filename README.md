@@ -15,8 +15,8 @@ Smith1979 is a creative portfolio at the intersection of brand identity, art dir
 | Section | What you'll find |
 |---|---|
 | **Portfolio** | Selected brand identity, social media and campaign, music visuals, print and packaging, motion and experimental work, grouped by category |
-| **Ready-Made** | Ready-to-use kits and packs to start a project faster *(coming soon)* |
-| **Downloads** | Free fonts, prompt packs, templates and media *(coming soon)* |
+| **Ready-Made** | Ready-to-use brand identity packages, template kits, asset sets, AI prompt packs and audio, available to buy or inquire about |
+| **Downloads** | Free fonts, prompt packs, templates, images, videos and audio, each with its license |
 | **Sounds** | Music projects, collaborations, scoring and writing |
 | **About** | Background, services, experience and tools |
 | **Contact** | Email, WhatsApp and social links |
@@ -38,6 +38,9 @@ src/
   assets/         CSS and images
   projects/       one Markdown file per portfolio project
   work/           portfolio listing and category pages
+  sounds/         music projects, collaborations, writing, scene
+  downloads/      free downloads (one Markdown file each)
+  readymade/      ready-made products (one Markdown file each)
   *.njk           top-level pages (home, about, sounds, contact, ...)
 eleventy.config.js
 .github/workflows/deploy.yml

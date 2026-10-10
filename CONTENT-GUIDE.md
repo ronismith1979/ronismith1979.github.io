@@ -23,6 +23,7 @@ Di `site.json`, array `nav`:
 
 - `show: false` = disembunyikan saat launch (tampil "soon" saat preview).
 - Saat halaman sudah siap: ubah jadi `show: true` **dan** hapus baris `status: soon` di bagian atas file halamannya (misal `src/downloads.njk`), supaya halaman itu ikut diindeks Google.
+- `"collection": "downloads"` (dipakai Downloads dan Ready-Made) = item nav **muncul otomatis** begitu ada minimal satu item yang `draft: false`, dan hilang otomatis kalau kosong. Halaman kosongnya juga otomatis `noindex`. Jadi tidak perlu ubah `show` secara manual.
 - `"dropdown": "categories"` = tampilkan dropdown kategori (dipakai di Portfolio).
 - `"cta": true` = tampil sebagai tombol beraksen (dipakai di Contact).
 - Urutan nav = urutan di array.
@@ -64,6 +65,28 @@ Satu file di `src/sounds/<nama>.md` = satu item. Salin dari `TEMPLATE-sound.md`.
 - Tombol dengar/tonton diisi lewat `links:` (Spotify, Bandcamp, YouTube, dll.).
 - 6 item awal (My Violainé Morning, Pop at Summer, Dream Cloud Cherries, Sonetique, Smi7h, Empat Musim Pertiwi) masih `draft: true` dengan deskripsi placeholder. Edit isinya, lalu ubah jadi `draft: false`.
 - Seksi yang kosong otomatis hilang saat launch. Nama dan intro tiap seksi diatur di `src/_data/sound.json`.
+
+## Downloads (gratis)
+
+Satu file di `src/downloads/<nama>.md` = satu item. Salin dari `TEMPLATE-download.md`.
+
+- `category`: fonts, prompt-packs, documents, images, video, audio (daftar dan intro seksi ada di `src/_data/downloads.json`).
+- Sumber file, pilih salah satu:
+  - `url:` link ke GitHub Releases atau Google Drive (disarankan untuk file besar).
+  - `file:` nama file yang kamu upload ke `src/assets/downloads/`. Upload lewat browser GitHub dibatasi **25 MB** per file, dan hindari file besar di repo.
+- GitHub Releases: tab **Releases** di repo, **Create a new release**, lampirkan file (sampai 2 GB), salin link download-nya ke `url:`.
+- `license` wajib diisi jelas (personal use, commercial, CC0, dll). Untuk font buatan sendiri ini penting.
+- `images:` untuk preview, boleh gambar, video `.mp4`, atau audio `.mp3`.
+
+## Ready-Made (produk)
+
+Satu file di `src/readymade/<nama>.md` = satu produk. Salin dari `TEMPLATE-readymade.md`.
+
+- `category`: brand-identity, collateral-social, asset-sets, video-sets, ai-prompts, audio (diatur di `src/_data/readymade.json`).
+- Tombol otomatis: kalau `buy:` diisi (link Gumroad, Lynk.id, Fiverr, dll), tampil **Buy now** + **Ask on WhatsApp**. Kalau kosong, tampil **Inquire on WhatsApp** + **Email** dengan pesan yang sudah terisi nama produknya.
+- `status: soon` = tampil "Coming soon" dan tombol beli dimatikan.
+- `priceValue` + `currency` (opsional) membuat Google bisa membaca harga produk (schema Product).
+- Teks ajakan di bawah halaman ("Need something customized...") bisa diubah di `readymade.json` (`note`).
 
 ## Panduan gambar dan video
 

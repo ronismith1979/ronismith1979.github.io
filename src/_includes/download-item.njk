@@ -1,0 +1,36 @@
+---
+layout: base.njk
+---
+{% set sec = downloads.sections | sectionBySlug(category) %}
+<article class="wrap project">
+  <header class="project-head">
+    <p class="crumb"><a href="/downloads/">Downloads</a> / <a href="/downloads/#{{ sec.slug }}">{{ sec.name }}</a></p>
+    <h1>{{ title }}</h1>
+    {% if summary %}<p class="lead">{{ summary }}</p>{% endif %}
+    <dl class="meta">
+      {% if format %}<div><dt>Format</dt><dd>{{ format }}</dd></div>{% endif %}
+      {% if size %}<div><dt>Size</dt><dd>{{ size }}</dd></div>{% endif %}
+      {% if license %}<div><dt>License</dt><dd>{{ license }}</dd></div>{% endif %}
+      {% if version %}<div><dt>Version</dt><dd>{{ version }}</dd></div>{% endif %}
+      {% if year %}<div><dt>Year</dt><dd>{{ year }}</dd></div>{% endif %}
+    </dl>
+    <p class="hero-links">
+      {% if dlUrl %}<a class="primary" href="{{ dlUrl }}"{% if file %} download{% endif %} rel="noopener">Download{% if size %} ({{ size }}){% endif %}</a>
+      {% else %}<span class="muted-note">Download link coming soon.</span>{% endif %}
+    </p>
+  </header>
+
+  {% if content | trim %}<div class="prose">{{ content | safe }}</div>{% endif %}
+  {% include "gallery.njk" %}
+
+  {% set more = collections.downloads | sameCategory(page, 3) %}
+  {% if more | length %}
+  <section class="more">
+    <h2>More in {{ sec.name }}</h2>
+    <ul class="grid">{% for p in more %}{% include "download-card.njk" %}{% endfor %}</ul>
+  </section>
+  {% endif %}
+</article>
+<script type="application/ld+json">
+{{ {"@context":"https://schema.org","@type":"CreativeWork","name":title,"isAccessibleForFree":true,"license":license,"fileFormat":format,"creator":{"@type":"Person","name":site.fullName,"alternateName":site.name},"url":(site.url + page.url),"description":summary} | dump | safe }}
+</script>

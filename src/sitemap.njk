@@ -5,7 +5,7 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>{{ site.url }}/</loc></url>
-  {%- for n in site.nav %}{% if n.show %}
+  {%- for n in site.nav %}{% if n.show or (n.collection and (collections[n.collection] | published | length)) %}
   <url><loc>{{ site.url }}{{ n.url }}</loc></url>
   {%- endif %}{% endfor %}
   {%- for c in site.categories %}{% if (collections.work | byCategory(c.slug) | count) > 0 %}
@@ -15,6 +15,12 @@ eleventyExcludeFromCollections: true
   <url><loc>{{ site.url }}{{ p.url }}</loc></url>
   {%- endif %}{% endfor %}
   {%- for p in collections.sounds %}{% if p.url and not p.data.draft %}
+  <url><loc>{{ site.url }}{{ p.url }}</loc></url>
+  {%- endif %}{% endfor %}
+  {%- for p in collections.downloads %}{% if p.url and not p.data.draft %}
+  <url><loc>{{ site.url }}{{ p.url }}</loc></url>
+  {%- endif %}{% endfor %}
+  {%- for p in collections.readymade %}{% if p.url and not p.data.draft %}
   <url><loc>{{ site.url }}{{ p.url }}</loc></url>
   {%- endif %}{% endfor %}
 </urlset>

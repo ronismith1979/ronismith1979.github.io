@@ -1,0 +1,10 @@
+<li class="card">
+  <a href="{{ p.url }}">
+    <div class="card-media">
+      {% if p.data.draft %}<span class="badge-draft">Draft</span>{% endif %}
+      <img src="{{ p.data.cover | img }}" alt="{{ p.data.title }}" loading="lazy" decoding="async" width="800" height="600">
+    </div>
+    <h3>{{ p.data.title }}</h3>
+    <p>{{ p.data.format }}{% if p.data.format and p.data.license %} · {% endif %}{{ p.data.license }}</p>
+  </a>
+</li>

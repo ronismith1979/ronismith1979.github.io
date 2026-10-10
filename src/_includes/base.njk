@@ -9,7 +9,7 @@
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ pageDesc }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-  {% if noindex or status == "soon" or site.previewMode %}<meta name="robots" content="noindex">{% endif %}
+  {% if noindex or status == "soon" or site.previewMode or (listing and not (collections[listing] | published | length)) %}<meta name="robots" content="noindex">{% endif %}
   <meta property="og:type" content="{{ 'article' if cover else 'website' }}">
   <meta property="og:site_name" content="{{ site.name }}">
   <meta property="og:title" content="{{ pageTitle }}">
@@ -34,9 +34,9 @@
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="bars" aria-hidden="true"></span><span class="sr">Menu</span></button>
       <nav id="site-nav" class="nav-wrap" aria-label="Main">
         <ul class="nav">
-          {%- for item in site.nav %}{% if item.show or site.previewMode %}
-          <li class="{% if item.dropdown %}has-sub {% endif %}{% if item.cta %}cta {% endif %}{% if not item.show %}is-soon{% endif %}">
-            <a href="{{ item.url }}"{% if page.url | startsWith(item.url) %} aria-current="page"{% endif %}>{{ item.label }}{% if not item.show %}<span class="soon">soon</span>{% endif %}</a>
+          {%- for item in site.nav %}{% set ready = item.show or (item.collection and (collections[item.collection] | published | length)) %}{% if ready or site.previewMode %}
+          <li class="{% if item.dropdown %}has-sub {% endif %}{% if item.cta %}cta {% endif %}{% if not ready %}is-soon{% endif %}">
+            <a href="{{ item.url }}"{% if page.url | startsWith(item.url) %} aria-current="page"{% endif %}>{{ item.label }}{% if not ready %}<span class="soon">soon</span>{% endif %}</a>
             {%- if item.dropdown == "categories" %}
             <ul class="sub">
               {%- for c in site.categories %}{% set n = collections.work | byCategory(c.slug) | count %}{% if n > 0 or site.previewMode %}

@@ -1,0 +1,36 @@
+{
+  "intro": "Kits, packs and bases to start your project faster. Ready to use, ready to make yours.",
+  "note": "Need something customized, or a pack that doesn't exist yet? Let's talk.",
+  "sections": [
+    {
+      "slug": "brand-identity",
+      "name": "Brand Identity Packages",
+      "intro": "Complete identity systems, ready to adapt to your brand."
+    },
+    {
+      "slug": "collateral-social",
+      "name": "Collateral & Social Media Kits",
+      "intro": "Print collateral and social template kits."
+    },
+    {
+      "slug": "asset-sets",
+      "name": "Icon, Illustration & Photo Sets",
+      "intro": "Visual asset sets for your own designs."
+    },
+    {
+      "slug": "video-sets",
+      "name": "Video Sets",
+      "intro": "Motion and video elements."
+    },
+    {
+      "slug": "ai-prompts",
+      "name": "AI Prompt Packs & Bundles",
+      "intro": "Premium prompt packs and complete bundle kits for AI generation."
+    },
+    {
+      "slug": "audio",
+      "name": "Music & Sonic Branding",
+      "intro": "Music, sonic logos and Tune ID."
+    }
+  ]
+}

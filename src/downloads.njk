@@ -3,19 +3,34 @@ layout: base.njk
 title: Downloads
 description: "Free downloads by Smith1979: fonts, AI prompt packs, documents, images, videos and audio you can use in your own projects."
 permalink: /downloads/
-status: soon
+listing: downloads
 ---
-<section class="wrap page narrow-page">
+<section class="wrap page">
   <h1>Downloads</h1>
-  <p class="lead">Free fonts, prompts, templates and media to download and use in your own projects.</p>
-  <h2>Coming soon</h2>
-  <ul class="plain">
-    <li>Fonts</li>
-    <li>Prompt packs</li>
-    <li>Documents and templates</li>
-    <li>Free images</li>
-    <li>Free videos</li>
-    <li>Free audio</li>
+  <p class="lead">{{ downloads.intro }}</p>
+
+  {% if collections.downloads | length or site.previewMode %}
+  <ul class="tabs" aria-label="Sections">
+    {%- for sec in downloads.sections %}{% set n = collections.downloads | byCategory(sec.slug) | count %}{% if n > 0 or site.previewMode %}
+    <li><a href="#{{ sec.slug }}">{{ sec.name }} <span class="count">{{ n }}</span></a></li>
+    {%- endif %}{% endfor %}
   </ul>
-  <p class="hero-links"><a href="/portfolio/">Browse the portfolio meanwhile</a></p>
+  {% endif %}
+
+  {% for sec in downloads.sections %}
+  {% set list = collections.downloads | byCategory(sec.slug) %}
+  {% if list | length or site.previewMode %}
+  <section class="block sound-section" id="{{ sec.slug }}">
+    <h2>{{ sec.name }}</h2>
+    {% if sec.intro %}<p class="lead">{{ sec.intro }}</p>{% endif %}
+    {% if list | length %}
+    <ul class="grid">{% for p in list %}{% include "download-card.njk" %}{% endfor %}</ul>
+    {% else %}
+    <p class="empty">Coming soon.</p>
+    {% endif %}
+  </section>
+  {% endif %}
+  {% endfor %}
+
+  {% if downloads.note %}<p class="note-line">{{ downloads.note }}</p>{% endif %}
 </section>

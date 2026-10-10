@@ -29,6 +29,31 @@ export default function (eleventyConfig) {
       })
   );
 
+  // Downloads (free) and Ready-Made (products): drafts only visible in preview mode.
+  const makeCollection = (tag) => (api) =>
+    api
+      .getFilteredByTag(tag)
+      .filter((p) => !p.data.draft || (p.data.site && p.data.site.previewMode))
+      .sort((a, b) => {
+        const ya = Number(a.data.year) || 0;
+        const yb = Number(b.data.year) || 0;
+        if (yb !== ya) return yb - ya;
+        return String(a.data.title).localeCompare(String(b.data.title));
+      });
+  eleventyConfig.addCollection("downloads", makeCollection("downloads"));
+  eleventyConfig.addCollection("readymade", makeCollection("readymade"));
+
+  eleventyConfig.addFilter("published", (items) =>
+    (items || []).filter((p) => !p.data.draft)
+  );
+  eleventyConfig.addFilter("sectionBySlug", (sections, slug) =>
+    sections.find((x) => x.slug === slug) || {}
+  );
+  eleventyConfig.addFilter("sameCategory", (items, current, n = 3) =>
+    items
+      .filter((p) => p.data.category === current.category && p.url !== current.page.url)
+      .slice(0, n)
+  );
   eleventyConfig.addFilter("byType", (items, type) =>
     items.filter((p) => p.data.type === type)
   );

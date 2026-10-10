@@ -5,8 +5,8 @@
   "previewMode": true,
   "nav": [
     { "label": "Portfolio", "url": "/portfolio/", "show": true, "dropdown": "categories" },
-    { "label": "Ready-Made", "url": "/ready-made/", "show": false },
-    { "label": "Downloads", "url": "/downloads/", "show": false },
+    { "label": "Ready-Made", "url": "/ready-made/", "show": false, "collection": "readymade" },
+    { "label": "Downloads", "url": "/downloads/", "show": false, "collection": "downloads" },
     { "label": "Sounds", "url": "/sounds/", "show": true },
     { "label": "About", "url": "/about/", "show": true },
     { "label": "Contact", "url": "/contact/", "show": true, "cta": true }

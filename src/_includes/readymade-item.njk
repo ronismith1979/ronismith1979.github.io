@@ -1,0 +1,47 @@
+---
+layout: base.njk
+---
+{% set sec = readymade.sections | sectionBySlug(category) %}
+{% set waText = "Hi, I'm interested in " + title + " (" + site.url + page.url + ")" %}
+<article class="wrap project">
+  <header class="project-head">
+    <p class="crumb"><a href="/ready-made/">Ready-Made</a> / <a href="/ready-made/#{{ sec.slug }}">{{ sec.name }}</a></p>
+    <h1>{{ title }}</h1>
+    {% if summary %}<p class="lead">{{ summary }}</p>{% endif %}
+    <dl class="meta">
+      {% if status == "soon" %}<div><dt>Status</dt><dd>Coming soon</dd></div>{% elif price %}<div><dt>Price</dt><dd>{{ price }}</dd></div>{% endif %}
+      {% if format %}<div><dt>Format</dt><dd>{{ format }}</dd></div>{% endif %}
+      {% if license %}<div><dt>License</dt><dd>{{ license }}</dd></div>{% endif %}
+      {% if year %}<div><dt>Year</dt><dd>{{ year }}</dd></div>{% endif %}
+    </dl>
+    <p class="hero-links">
+      {% if buy and status != "soon" %}
+      <a class="primary" href="{{ buy }}" rel="noopener" target="_blank">Buy now{% if price %} · {{ price }}{% endif %}</a>
+      <a href="{{ site.whatsapp }}?text={{ waText | urlencode }}" rel="noopener" target="_blank">Ask on WhatsApp</a>
+      {% else %}
+      <a class="primary" href="{{ site.whatsapp }}?text={{ waText | urlencode }}" rel="noopener" target="_blank">Inquire on WhatsApp</a>
+      <a href="mailto:{{ site.email }}?subject={{ ('Inquiry: ' + title) | urlencode }}">Email</a>
+      {% endif %}
+    </p>
+  </header>
+
+  {% if content | trim %}<div class="prose">{{ content | safe }}</div>{% endif %}
+  {% if included %}
+  <div class="prose included">
+    <h2>What's included</h2>
+    <ul>{% for i in included %}<li>{{ i }}</li>{% endfor %}</ul>
+  </div>
+  {% endif %}
+  {% include "gallery.njk" %}
+
+  {% set more = collections.readymade | sameCategory(page, 3) %}
+  {% if more | length %}
+  <section class="more">
+    <h2>More in {{ sec.name }}</h2>
+    <ul class="grid">{% for p in more %}{% include "readymade-card.njk" %}{% endfor %}</ul>
+  </section>
+  {% endif %}
+</article>
+<script type="application/ld+json">
+{{ {"@context":"https://schema.org","@type":"Product","name":title,"description":summary,"image":(site.url + (cover | img)),"brand":{"@type":"Person","name":site.fullName,"alternateName":site.name},"url":(site.url + page.url),"offers":({"@type":"Offer","price":priceValue,"priceCurrency":currency,"availability":"https://schema.org/InStock","url":(buy or (site.url + page.url))} if priceValue else undefined)} | dump | safe }}
+</script>

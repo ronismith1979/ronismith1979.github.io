@@ -189,3 +189,15 @@ code { font-size: 0.9em; background: var(--surface); padding: 0.1em 0.35em; }
 .sound-section > .lead { margin-top: 0.5rem; margin-bottom: 1.5rem; }
 .entry-meta { display: block; color: var(--muted); font-size: 0.95rem; }
 .listening { margin-top: 3rem; }
+
+/* Primary button + Downloads / Ready-Made */
+.hero-links a.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.hero-links a.primary:hover, .hero-links a.primary:focus-visible { filter: brightness(1.1); }
+.muted-note { color: var(--muted); font: 500 1rem var(--font-display); }
+.note-line { margin-top: 3rem; color: var(--muted); font: 500 0.95rem var(--font-display); }
+.gallery audio { display: block; width: 100%; }
+.included h2 { font-size: 1.25rem; margin: 2.5rem 0 0.75rem; }
+.included ul { margin: 0; padding-left: 1.2rem; }
+.cta-band { margin-top: 4rem; padding: 2rem 0; border-block: 1px solid var(--line); }
+.cta-band > p:first-child { margin: 0; font: 600 1.35rem/1.35 var(--font-display); max-width: 32ch; }
+.project-head .hero-links { margin-bottom: 2.5rem; }

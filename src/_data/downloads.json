@@ -1,0 +1,36 @@
+{
+  "intro": "Free fonts, prompts, templates and media to download and use in your own projects.",
+  "note": "Always check the license listed on each item before using it commercially.",
+  "sections": [
+    {
+      "slug": "fonts",
+      "name": "Fonts",
+      "intro": "Typefaces I designed myself."
+    },
+    {
+      "slug": "prompt-packs",
+      "name": "Prompt Packs",
+      "intro": "Ready-to-use prompts for AI image, video and music generation."
+    },
+    {
+      "slug": "documents",
+      "name": "Documents & Templates",
+      "intro": "Guides, checklists and templates you can put to work right away."
+    },
+    {
+      "slug": "images",
+      "name": "Free Images",
+      "intro": "Photos, textures and visuals."
+    },
+    {
+      "slug": "video",
+      "name": "Free Videos",
+      "intro": "Clips, loops and motion elements."
+    },
+    {
+      "slug": "audio",
+      "name": "Free Audio",
+      "intro": "Music, ambience and sound elements."
+    }
+  ]
+}

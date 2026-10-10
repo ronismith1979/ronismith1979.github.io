@@ -1,0 +1,13 @@
+{% if images %}
+<div class="gallery">
+  {% for im in images %}
+    {% if im.endsWith(".mp4") %}
+      <video controls playsinline preload="metadata" src="{{ im | img }}" aria-label="{{ title }}, video {{ loop.index }} of {{ images | length }}"></video>
+    {% elif im.endsWith(".mp3") or im.endsWith(".wav") or im.endsWith(".ogg") %}
+      <audio controls preload="metadata" src="{{ im | img }}" aria-label="{{ title }}, audio {{ loop.index }} of {{ images | length }}"></audio>
+    {% else %}
+      <img src="{{ im | img }}" alt="{{ title }}, image {{ loop.index }} of {{ images | length }}" loading="lazy" decoding="async">
+    {% endif %}
+  {% endfor %}
+</div>
+{% endif %}
