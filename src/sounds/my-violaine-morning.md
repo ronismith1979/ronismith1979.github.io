@@ -5,7 +5,7 @@ year: 2004
 genre: "Alternative"
 role: "Songwriter, Guitarist, Vocalist, Producer"
 summary: "Indonesian Alternative Indie band."
-cover: ""
+cover: "myviolainemorning/my violainé morning-photo-2026-01.jpeg"
 images:                        # opsional: gambar dan video .mp4 sesuai urutan
   - nama-project/01.jp
 links:
