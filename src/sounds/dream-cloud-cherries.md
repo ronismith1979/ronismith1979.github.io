@@ -1,8 +1,10 @@
 ---
 title: "Dream Cloud Cherries"
 type: project
-summary: "Music project."
-cover: ""
+year: 2009
+genre: "Indiepop"
+summary: "Indiepop Band"
+cover: "dreamcloudcherries/Dream-cloud-cherries_collage-01.jpg"
 links: []
-draft: true
+draft: false
 ---
