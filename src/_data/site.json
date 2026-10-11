@@ -2,7 +2,7 @@
   "name": "Smith1979",
   "fullName": "Roni Tresnawan",
   "url": "https://ronismith1979.github.io",
-  "previewMode": true,
+  "previewMode": false,
   "nav": [
     { "label": "Portfolio", "url": "/portfolio/", "show": true, "dropdown": "categories" },
     { "label": "Ready-Made", "url": "/ready-made/", "show": false, "collection": "readymade" },
