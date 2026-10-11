@@ -9,7 +9,7 @@ scope: "Logo & Visual Collaterals"
 source: Direct client
 cover: mahkopi/logo-01.jpg
 images:
-   - mahkopi/facade-001.jpg
+   - mahkopi/facade-01.jpg
    - mahkopi/stationery-01.jpg
 featured: true
 draft: false
