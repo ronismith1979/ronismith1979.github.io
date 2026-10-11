@@ -2,13 +2,16 @@
 title: "Mahkopi Rebranding"
 client: "Mahkopi"
 category: brand-identity
-role: "Brand Identity"
+role: "Lead Creative Visual"
 link: "https://instagram.com/mahkopi_"
+year: 2024
+scope: "Logo & Visual Collaterals"
+source: Direct client
+cover: mahkopi/logo-01.jpg
+images:
+   - mahkopi/facade-001.jpg
+   - mahkopi/stationery-01.jpg
 featured: true
-# year: 2024
-# source: Direct client
-# cover: mahkopi-rebranding/cover.jpg
-# images:
-#   - mahkopi-rebranding/01.jpg
-#   - mahkopi-rebranding/02.jpg
+draft: false
 ---
+Creative Direction, Rebranding, Visual Identity & System, Creative Naming
