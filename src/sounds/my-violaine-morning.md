@@ -5,9 +5,9 @@ year: 2004
 genre: "Alternative"
 role: "Songwriter, Guitarist, Vocalist, Producer"
 summary: "Indonesian Alternative Indie band."
-cover: "sounds/myviolainemorning/my violainé morning-photo-2026-01.jpeg"
+cover: "myviolainemorning/my violainé morning-photo-2026-01.jpg"
 images:                        # opsional: gambar dan video .mp4 sesuai urutan
-  - nama-project/01.jp
+  - myviolainemorning/my violainé morning-photo-2026-01.jpg
 links:
   - { label: "Listen on Spotify", url: "https://..." }
   - { label: "Watch on YouTube", url: "https://..." }
