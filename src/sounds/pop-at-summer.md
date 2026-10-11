@@ -8,6 +8,7 @@ cover: "popatsummer/popatsummer_2023-02-01.jpg"
 images:
   - popatsummer/popatsummer_2023-02-01.jpg
 links:
+  - { label: "Listen on Apple Music", url: "https://music.apple.com/id/artist/pop-at-summer/1240215550" }
   - { label: "Listen on Spotify", url: "https://open.spotify.com/artist/7mbdRb6N5UlK7bXsZYkW9z?autoplay=true" }
   - { label: "Watch on YouTube", url: "https://www.youtube.com/c/popatsummer" }
 draft: false
