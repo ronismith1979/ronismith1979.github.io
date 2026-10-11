@@ -18,19 +18,21 @@ layout: base.njk
 
   {% if content | trim %}<div class="prose">{{ content | safe }}</div>{% endif %}
 
-  {% if images %}
-  <div class="gallery">
-    {% for im in images %}
-      {% if im.endsWith(".mp4") %}
-        <video controls playsinline preload="metadata" src="{{ im | img }}" aria-label="{{ title }}, video {{ loop.index }} of {{ images | length }}"></video>
-      {% else %}
-        <img src="{{ im | img }}" alt="{{ title }}, image {{ loop.index }} of {{ images | length }}" loading="lazy" decoding="async">
-      {% endif %}
+  {% if tracks %}
+  <section class="tracks">
+    <h2>Listen</h2>
+    {% for t in tracks %}
+    <figure class="track">
+      <figcaption>{{ t.title }}</figcaption>
+      <audio controls preload="none" src="{{ (t.file | img) if t.file else t.url }}" aria-label="{{ t.title }}"></audio>
+    </figure>
     {% endfor %}
-  </div>
+  </section>
   {% endif %}
 
-  {% set more = collections.sounds | siblings(page, 3) %}
+  {% include "gallery.njk" %}
+
+  {% set more = collections.sounds | siblings(page, 3, sec.sort) %}
   {% if more | length %}
   <section class="more">
     <h2>More in {{ sec.name }}</h2>

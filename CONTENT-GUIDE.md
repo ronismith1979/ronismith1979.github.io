@@ -64,6 +64,8 @@ Satu file di `src/sounds/<nama>.md` = satu item. Salin dari `TEMPLATE-sound.md`.
 - Cover kosong = placeholder abu-abu. Taruh gambar di `src/assets/img/projects/<nama>/` seperti project portfolio.
 - Tombol dengar/tonton diisi lewat `links:` (Spotify, Bandcamp, YouTube, dll.).
 - 6 item awal (My Violainé Morning, Pop at Summer, Dream Cloud Cherries, Sonetique, Smi7h, Empat Musim Pertiwi) masih `draft: true` dengan deskripsi placeholder. Edit isinya, lalu ubah jadi `draft: false`.
+- **Urutan:** diatur per seksi lewat `"sort"` di `src/_data/sound.json`: `"asc"` = paling lama dulu (dipakai Projects dan Collaborations), `"desc"` = terbaru dulu (Writing dan Scene). Mau urutan manual? Tambahkan `order: 1`, `order: 2`, dst. di frontmatter item (angka kecil tampil duluan, dan mengalahkan tahun).
+- **Audio player:** isi `tracks:` di frontmatter dengan judul + file `.mp3` (taruh di `src/assets/img/projects/<nama>/`) atau link `url:`. Pakai MP3 128 sampai 192 kbps (lagu 4 menit sekitar 4 sampai 6 MB). WAV terlalu besar untuk repo dan batas upload browser GitHub 25 MB per file. Audio baru dimuat saat tombol play ditekan, jadi halaman tetap ringan.
 - Seksi yang kosong otomatis hilang saat launch. Nama dan intro tiap seksi diatur di `src/_data/sound.json`.
 
 ## Downloads (gratis)

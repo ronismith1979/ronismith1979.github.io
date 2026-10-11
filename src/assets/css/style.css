@@ -45,7 +45,8 @@ code { font-size: 0.9em; background: var(--surface); padding: 0.1em 0.35em; }
 
 /* Header / nav */
 .preview-bar { background: var(--accent); color: var(--on-accent); text-align: center; font: 500 0.8rem/1.4 var(--font-display); padding: 0.4rem var(--gutter); }
-.site-header { border-bottom: 1px solid var(--line); }
+html { scroll-padding-top: 5rem; }
+.site-header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 92%, transparent); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
 .bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 2rem; padding-block: 1.1rem; }
 .wordmark { font: 800 1.35rem var(--font-display); letter-spacing: -0.03em; color: var(--ink); text-decoration: none; }
 .nav { display: flex; align-items: center; gap: 0.25rem 1.6rem; list-style: none; margin: 0; padding: 0; font: 500 1rem var(--font-display); }
@@ -80,7 +81,7 @@ code { font-size: 0.9em; background: var(--surface); padding: 0.1em 0.35em; }
 @media (max-width: 880px) {
   .js .nav-toggle { display: inline-flex; }
   .js .nav-wrap { display: none; flex-basis: 100%; }
-  .js .nav-wrap.is-open { display: block; }
+  .js .nav-wrap.is-open { display: block; max-height: calc(100vh - 5.5rem); max-height: calc(100dvh - 5.5rem); overflow-y: auto; }
   .nav { flex-direction: column; align-items: stretch; gap: 0; padding-top: 0.5rem; }
   .nav > li > a { display: block; padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
   .has-sub > a::after { display: none; }
@@ -201,3 +202,9 @@ code { font-size: 0.9em; background: var(--surface); padding: 0.1em 0.35em; }
 .cta-band { margin-top: 4rem; padding: 2rem 0; border-block: 1px solid var(--line); }
 .cta-band > p:first-child { margin: 0; font: 600 1.35rem/1.35 var(--font-display); max-width: 32ch; }
 .project-head .hero-links { margin-bottom: 2.5rem; }
+
+/* Audio tracks (Sounds) */
+.tracks h2 { font-size: 1.25rem; margin: 2.5rem 0 1rem; }
+.track { margin: 0 0 1.25rem; max-width: 40rem; }
+.track figcaption { margin-bottom: 0.4rem; font: 600 1rem var(--font-display); }
+.track audio { display: block; width: 100%; }

@@ -60,10 +60,26 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("sectionFor", (sections, type) =>
     sections.find((x) => x.type === type) || {}
   );
-  eleventyConfig.addFilter("siblings", (items, current, n = 3) =>
-    items
-      .filter((p) => p.data.type === current.type && p.url !== current.page.url)
-      .slice(0, n)
+  // Sort by optional "order" (manual), then by year ("asc" = oldest first, "desc" = newest first).
+  // Items without a year go last.
+  const sortYear = (items, dir = "desc") => {
+    const m = dir === "asc" ? 1 : -1;
+    return [...items].sort((a, b) => {
+      const oa = a.data.order, ob = b.data.order;
+      if (oa !== undefined && ob !== undefined && Number(oa) !== Number(ob)) return Number(oa) - Number(ob);
+      const ya = Number(a.data.year) || 0, yb = Number(b.data.year) || 0;
+      if (ya && yb && ya !== yb) return (ya - yb) * m;
+      if (ya && !yb) return -1;
+      if (!ya && yb) return 1;
+      return String(a.data.title).localeCompare(String(b.data.title));
+    });
+  };
+  eleventyConfig.addFilter("sortYear", sortYear);
+  eleventyConfig.addFilter("siblings", (items, current, n = 3, dir = "desc") =>
+    sortYear(
+      items.filter((p) => p.data.type === current.type && p.url !== current.page.url),
+      dir
+    ).slice(0, n)
   );
   eleventyConfig.addFilter("byCategory", (items, slug) =>
     items.filter((p) => p.data.category === slug)

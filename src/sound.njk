@@ -18,7 +18,7 @@ permalink: /sounds/
   {% endif %}
 
   {% for sec in sound.sections %}
-  {% set list = collections.sounds | byType(sec.type) %}
+  {% set list = collections.sounds | byType(sec.type) | sortYear(sec.sort) %}
   {% if list | length or site.previewMode %}
   <section class="block sound-section" id="{{ sec.slug }}">
     <h2>{{ sec.name }}</h2>

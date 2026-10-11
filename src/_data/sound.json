@@ -2,9 +2,9 @@
   "intro": "Alongside design, I write and produce music. The same ear for texture and mood shapes how I art-direct a brand.",
   "genres": ["Post-rock", "Indiepop", "Tweepop", "Britpop", "Electronic", "Ambient instrumental"],
   "sections": [
-    { "slug": "projects", "type": "project", "name": "Projects", "layout": "cards", "intro": "Bands and solo projects I write, play and produce." },
-    { "slug": "collaborations", "type": "collab", "name": "Collaborations & Scoring", "layout": "cards", "intro": "Film scoring, sonic branding and projects made with other artists." },
-    { "slug": "writing", "type": "writing", "name": "Writing", "layout": "list", "intro": "Articles and essays on music, published in local media." },
-    { "slug": "scene", "type": "scene", "name": "Scene & Community", "layout": "list", "intro": "Talks, workshops and gigs within the local independent scene." }
+    { "slug": "projects", "sort": "asc", "type": "project", "name": "Projects", "layout": "cards", "intro": "Bands and solo projects I write, play and produce." },
+    { "slug": "collaborations", "sort": "asc", "type": "collab", "name": "Collaborations & Scoring", "layout": "cards", "intro": "Film scoring, sonic branding and projects made with other artists." },
+    { "slug": "writing", "sort": "desc", "type": "writing", "name": "Writing", "layout": "list", "intro": "Articles and essays on music, published in local media." },
+    { "slug": "scene", "sort": "desc", "type": "scene", "name": "Scene & Community", "layout": "list", "intro": "Talks, workshops and gigs within the local independent scene." }
   ]
 }

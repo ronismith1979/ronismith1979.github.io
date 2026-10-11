@@ -13,6 +13,10 @@ summary: "Satu kalimat tentang project ini."
 cover: nama-project/cover.jpg  # file di src/assets/img/projects/nama-project/ (kosong = placeholder)
 images:                        # opsional: gambar dan video .mp4 sesuai urutan
   - nama-project/01.jpg
+tracks:                        # opsional: audio yang bisa diputar langsung (pakai MP3)
+  - { title: "Judul Lagu", file: "nama-project/lagu-01.mp3" }
+  - { title: "Lagu dari link luar", url: "https://..." }
+order: 1                       # opsional: urutan manual (angka kecil tampil duluan)
 links:                         # tombol dengar/tonton
   - { label: "Listen on Spotify", url: "https://..." }
   - { label: "Watch on YouTube", url: "https://..." }
