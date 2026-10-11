@@ -7,10 +7,12 @@ link: "https://instagram.com/mahkopi_"
 year: 2024
 scope: "Logo & Visual Collaterals"
 source: Direct client
-cover: mahkopi/logo-01.jpg
+cover: mahkopi/logo-01.png
 images:
    - mahkopi/facade-01.jpg
    - mahkopi/stationery-01.jpg
+   - mahkopi/stationery-02.jpg
+   - mahkopi/stationery-03.jpg
 featured: true
 draft: false
 ---
