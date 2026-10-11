@@ -5,7 +5,8 @@ year: 2024
 genre: Experimental
 summary: "Solo experimental project"
 cover: "smi7h/Profile-SMI7H.png"
-images: - smi7h/Header-SMI7H.png
+images:
+- smi7h/Header-SMI7H.png
 links: []
 draft: false
 ---
